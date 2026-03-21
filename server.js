@@ -1,7 +1,8 @@
 import express from "express";
-import connectDB from "./db/connection";
-import Book from "./models/Book";
-import router from "./routes/bookRoutes";
+import dotenv from 'dotenv'
+import connectDB from "./db/connection.js";
+import Book from "./models/Book.js";
+import bookRoutes from "./routes/bookRoutes.js";
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ app.use(express.json());
 connectDB();
 
 //routes
-app.use('/api/books', booksRoutes);
+app.use('/api/books', bookRoutes);
 
 // server start
 const PORT = process.env.PORT || 3000;
